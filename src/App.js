@@ -23,7 +23,7 @@ const apStatus = {
 class App extends Component {
   state = {data: [], ap: apStatus.initial, sel: 'ALL'}
 
-  componentsDidMount() {
+  componentDidMount() {
     this.getData()
   }
 
