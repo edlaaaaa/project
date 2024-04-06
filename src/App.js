@@ -31,7 +31,7 @@ class App extends Component {
     this.setState({ap: apStatus.loading})
     const {sel} = this.state
 
-    const url = `https://apis.ccbp.in/ps/projects?category=${sel}`
+    const url = `https://apis.ccbp.in/ps/projects?category=${self}`
     const options = {
       method: 'GET',
     }
@@ -41,7 +41,7 @@ class App extends Component {
       const updateData = data.projects.map(i => ({
         id: i.id,
         name: i.name,
-        imageUrl: i.imageUrl,
+        imageUrl: i.image_Url,
       }))
       this.setState({data: updateData, ap: apStatus.success})
     } else {
@@ -78,7 +78,7 @@ class App extends Component {
         className="ima"
         alt="failure view"
       />
-      <h1 className="header">Oops!Something went wrong</h1>
+      <h1 className="header">Oops!Something Went Wrong</h1>
       <p className="para">
         We cannot seem to find the page you are looking for
       </p>
