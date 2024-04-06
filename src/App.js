@@ -31,7 +31,7 @@ class App extends Component {
     this.setState({ap: apStatus.loading})
     const {sel} = this.state
 
-    const url = `https://apis.ccbp.in/ps/projects?category=${self}`
+    const url = `https://apis.ccbp.in/ps/projects?category=${sel}`
     const options = {
       method: 'GET',
     }
@@ -41,7 +41,7 @@ class App extends Component {
       const updateData = data.projects.map(i => ({
         id: i.id,
         name: i.name,
-        imageUrl: i.image_Url,
+        imageUrl: i.image_url,
       }))
       this.setState({data: updateData, ap: apStatus.success})
     } else {
@@ -53,7 +53,7 @@ class App extends Component {
   }
 
   loadingView = () => (
-    <div testid="loader" className="load">
+    <div data-testid="loader" className="load">
       <Loader type="ThreeDots" color="#00BFFF" height={50} width={50} />
     </div>
   )
@@ -78,7 +78,7 @@ class App extends Component {
         className="ima"
         alt="failure view"
       />
-      <h1 className="header">Oops!Something Went Wrong</h1>
+      <h1 className="header">Oops! Something Went Wrong</h1>
       <p className="para">
         We cannot seem to find the page you are looking for
       </p>
@@ -103,7 +103,7 @@ class App extends Component {
   }
 
   render() {
-    const {self} = this.state
+    const {sel} = this.state
     return (
       <div>
         <nav className="nav-el">
